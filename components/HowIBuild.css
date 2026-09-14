@@ -1,0 +1,396 @@
+/* =========================
+   HOW I BUILD
+========================= */
+
+.build-section {
+  position: relative;
+
+  padding: 120px 56px 110px;
+
+  background: var(--surface);
+
+  overflow: hidden;
+}
+
+.build-inner {
+  position: relative;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.build-heading {
+  max-width: 760px;
+
+  margin-bottom: 70px;
+}
+
+.build-kicker {
+  margin: 0 0 14px;
+
+  color: var(--violet);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 12px;
+}
+
+.build-heading h2 {
+  position: relative;
+
+  display: inline-block;
+
+  margin: 0;
+
+  color: var(--charcoal);
+
+  font-family: var(--font-display), sans-serif;
+
+  font-size: clamp(58px, 7vw, 104px);
+  font-weight: 600;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.055em;
+}
+
+.build-heading h2 span {
+  position: absolute;
+
+  right: -32px;
+  top: 4px;
+
+  color: var(--rose);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 17px;
+}
+
+.build-intro {
+  max-width: 660px;
+
+  margin: 30px 0 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.build-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.build-card {
+  position: relative;
+
+  min-height: 290px;
+
+  padding: 28px 30px 32px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  overflow: hidden;
+
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.build-card:hover {
+  background:
+    rgba(247, 241, 232, 0.6);
+}
+
+.build-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 58px;
+}
+
+.build-number {
+  font-family: var(--font-mono), monospace;
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  color: var(--muted);
+}
+
+.build-marker {
+  font-family: var(--font-mono), monospace;
+
+  font-size: 9px;
+}
+
+/* =========================
+   GIANT CATEGORY TITLE
+========================= */
+
+.build-card h3 {
+  margin: 0;
+
+  font-family: var(--font-display), sans-serif;
+
+  font-size: clamp(36px, 4vw, 62px);
+
+  font-weight: 600;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.build-card.mulberry h3,
+.build-card.mulberry .build-marker {
+  color: var(--mulberry);
+}
+
+.build-card.rose h3,
+.build-card.rose .build-marker {
+  color: var(--rose);
+}
+
+.build-card.violet h3,
+.build-card.violet .build-marker {
+  color: var(--violet);
+}
+
+.build-card.soft h3,
+.build-card.soft .build-marker {
+  color: var(--soft-rose);
+}
+
+/* =========================
+   LITTLE LINE + TOOLS
+========================= */
+
+.build-line {
+  width: 58px;
+
+  margin: 24px 0 18px;
+
+  overflow: hidden;
+}
+
+.build-line span {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--border);
+
+  transition: width 220ms ease;
+}
+
+.build-card:hover .build-line span {
+  width: 68%;
+}
+
+.build-card p {
+  max-width: 440px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 11px;
+
+  line-height: 1.75;
+}
+
+/* =========================
+   WHIMSICAL DETAILS
+========================= */
+
+.build-card-sparkle {
+  position: absolute;
+
+  right: 24px;
+  bottom: 20px;
+
+  color: var(--soft-rose);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 10px;
+
+  opacity: 0;
+
+  transform: translateY(4px);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.build-card:hover .build-card-sparkle {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.build-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 74px;
+  height: 74px;
+
+  right: -37px;
+  top: -37px;
+
+  border: 1px dashed rgba(216, 202, 195, 0.7);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================
+   NEXT → PROJECTS
+========================= */
+
+.build-next {
+  width: fit-content;
+
+  margin: 66px 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--mulberry);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 12px;
+}
+
+.build-next-arrow {
+  margin-left: 4px;
+
+  color: var(--rose);
+
+  font-size: 20px;
+}
+
+/* =========================
+   BACKGROUND DOODLE
+========================= */
+
+.build-doodle {
+  position: absolute;
+
+  right: -35px;
+  top: 95px;
+
+  width: 280px;
+
+  opacity: 0.22;
+
+  pointer-events: none;
+}
+
+.build-doodle svg {
+  width: 100%;
+}
+
+.build-doodle path {
+  fill: none;
+
+  stroke: var(--rose);
+
+  stroke-width: 1;
+
+  stroke-linecap: round;
+}
+
+.build-doodle circle {
+  fill: var(--violet);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .build-section {
+    padding: 96px 24px 88px;
+  }
+
+  .build-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-card {
+    min-height: 250px;
+  }
+
+  .build-doodle {
+    opacity: 0.16;
+  }
+}
+
+@media (max-width: 640px) {
+  .build-section {
+    padding-top: 78px;
+  }
+
+  .build-heading {
+    margin-bottom: 50px;
+  }
+
+  .build-intro {
+    font-size: 16px;
+  }
+
+  .build-card {
+    min-height: auto;
+
+    padding: 24px 22px 28px;
+  }
+
+  .build-card-top {
+    margin-bottom: 44px;
+  }
+
+  .build-card h3 {
+    font-size: 42px;
+  }
+
+  .build-next {
+    margin-top: 52px;
+  }
+}

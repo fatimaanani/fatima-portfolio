@@ -1,0 +1,707 @@
+/* =========================
+   PLAYGROUND
+========================= */
+
+.playground {
+  min-height: 520px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 64% 44%,
+      rgba(217, 154, 158, 0.055),
+      transparent 35%
+    ),
+    rgba(255, 249, 242, 0.68);
+
+  overflow: hidden;
+}
+
+.playground-scene {
+  position: relative;
+
+  width: 100%;
+  min-height: 520px;
+
+  overflow: hidden;
+  cursor: crosshair;
+
+  isolation: isolate;
+}
+
+/* =========================
+   MINI TERMINAL
+========================= */
+
+.mini-terminal {
+  position: absolute;
+  top: 26px;
+  left: 25px;
+
+  width: 170px;
+
+  padding: 15px 15px 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background: rgba(255, 249, 242, 0.94);
+
+  box-shadow:
+    0 4px 18px rgba(41, 35, 38, 0.035);
+
+  z-index: 20;
+}
+
+.mini-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+
+  border-bottom:
+    1px solid rgba(216, 202, 195, 0.55);
+
+  font-family: var(--font-mono), monospace;
+  color: var(--charcoal);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.terminal-status-dot {
+  width: 7px;
+  height: 7px;
+
+  border: 1px solid var(--mulberry);
+  border-radius: 50%;
+
+  background: var(--rose);
+
+  transform-origin: center;
+}
+
+.mini-terminal-body {
+  font-family: var(--font-mono), monospace;
+
+  font-size: 10px;
+  line-height: 1.45;
+
+  color: var(--charcoal);
+}
+
+.mini-terminal-body p {
+  margin: 6px 0;
+}
+
+.mini-terminal-body button {
+  display: block;
+
+  width: 100%;
+
+  margin: 3px 0;
+  padding: 1px 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--charcoal);
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.mini-terminal-body button:hover {
+  color: var(--mulberry);
+  transform: translateX(2px);
+}
+
+.terminal-command {
+  color: var(--mulberry);
+}
+
+.terminal-muted {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--mulberry);
+}
+
+.terminal-block {
+  display: inline-block;
+
+  width: 5px;
+  height: 8px;
+
+  background: var(--charcoal);
+
+  animation:
+    cursorBlink 1s steps(1) infinite;
+}
+
+/* =========================
+   SVG ARTWORK
+========================= */
+
+.playground-art {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.playground-path {
+  fill: none;
+
+  stroke:
+    rgba(116, 104, 109, 0.42);
+
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-dasharray: 4 7;
+}
+
+.playground-path.active {
+  stroke:
+    rgba(200, 95, 124, 0.64);
+}
+
+.playground-shape {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.shape-line {
+  fill:
+    rgba(255, 249, 242, 0.18);
+
+  stroke-width: 1;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.shape-line.rose {
+  stroke:
+    rgba(141, 49, 93, 0.47);
+}
+
+.shape-line.neutral {
+  stroke:
+    rgba(116, 104, 109, 0.38);
+}
+
+.static-node {
+  stroke-width: 1;
+
+  vector-effect: non-scaling-stroke;
+
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.static-node.neutral {
+  fill: #eadbcd;
+  stroke: var(--muted);
+}
+
+.static-node.rose {
+  fill:
+    rgba(200, 95, 124, 0.5);
+
+  stroke: var(--rose);
+}
+
+.static-node.violet {
+  fill: var(--violet);
+  stroke: var(--violet);
+}
+
+/* =========================
+   PERMANENT SPARKLES
+========================= */
+
+.permanent-sparkle {
+  font-family: var(--font-mono), monospace;
+
+  font-size: 11px;
+
+  opacity: 0.82;
+
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.permanent-sparkle.rose {
+  fill: var(--rose);
+}
+
+.permanent-sparkle.violet {
+  fill: var(--violet);
+}
+
+.permanent-sparkle.soft {
+  fill: var(--soft-rose);
+}
+
+.permanent-sparkle.tiny {
+  font-size: 7px;
+}
+
+/* =========================
+   NAVIGATION NODES
+========================= */
+
+.navigation-node-wrap {
+  position: absolute;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+}
+
+/*
+  GSAP animates this inner wrapper instead of
+  navigation-node-wrap.
+
+  That way it never interferes with the
+  translate(-50%, -50%) positioning above.
+*/
+
+.navigation-node-float {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  transform-origin: center;
+}
+
+.navigation-node {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 249, 242, 0.92);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 0 5px rgba(200, 95, 124, 0.055),
+    0 5px 14px rgba(41, 35, 38, 0.045);
+}
+
+.navigation-node.mulberry {
+  border: 1.5px solid var(--mulberry);
+}
+
+.navigation-node.rose {
+  border: 1.5px solid var(--rose);
+}
+
+.navigation-node.violet {
+  border: 1.5px solid var(--violet);
+}
+
+.navigation-node.soft {
+  border: 1.5px solid var(--soft-rose);
+}
+
+.navigation-node.neutral {
+  border: 1px solid var(--muted);
+}
+
+.navigation-node-core {
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+}
+
+.navigation-node.mulberry
+  .navigation-node-core {
+  background: var(--mulberry);
+}
+
+.navigation-node.rose
+  .navigation-node-core {
+  background: var(--rose);
+}
+
+.navigation-node.violet
+  .navigation-node-core {
+  background: var(--violet);
+}
+
+.navigation-node.soft
+  .navigation-node-core {
+  background:
+    rgba(217, 154, 158, 0.55);
+}
+
+.navigation-node.neutral
+  .navigation-node-core {
+  width: 13px;
+  height: 13px;
+
+  background: #eadbcd;
+}
+
+/* =========================
+   TOOLTIPS
+========================= */
+
+.node-tooltip {
+  position: absolute;
+
+  width: 132px;
+
+  padding: 11px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  background:
+    rgba(255, 249, 242, 0.97);
+
+  box-shadow:
+    0 6px 18px rgba(41, 35, 38, 0.045);
+
+  color: var(--charcoal);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 10px;
+
+  pointer-events: none;
+
+  z-index: 30;
+}
+
+.node-tooltip strong {
+  color: var(--charcoal);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.node-tooltip
+  > span:not(.node-tooltip-dot) {
+  color: var(--muted);
+}
+
+.node-tooltip-dot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--rose);
+}
+
+/*
+  Positional centering stays on `translate`.
+
+  Motion is free to use transform for the
+  tiny tooltip entrance animation.
+*/
+
+.tooltip-bottom {
+  top: calc(100% + 14px);
+  left: 50%;
+
+  translate: -50% 0;
+}
+
+.tooltip-top {
+  bottom: calc(100% + 14px);
+  left: 50%;
+
+  translate: -50% 0;
+}
+
+.tooltip-left {
+  top: 50%;
+  right: calc(100% + 14px);
+
+  translate: 0 -50%;
+}
+
+.tooltip-right {
+  top: 50%;
+  left: calc(100% + 14px);
+
+  translate: 0 -50%;
+}
+
+/* =========================
+   NODE CLICK BURST
+========================= */
+
+.node-click-burst {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  pointer-events: none;
+
+  color: var(--rose);
+
+  z-index: 50;
+}
+
+.node-click-burst span {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: inherit;
+
+  font-family: var(--font-mono), monospace;
+  line-height: 1;
+}
+
+/* =========================
+   BOTTOM HINT
+========================= */
+
+.playground-hint {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+
+  padding: 8px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  background:
+    rgba(255, 249, 242, 0.88);
+
+  color: var(--muted);
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 9px;
+
+  pointer-events: none;
+
+  z-index: 8;
+}
+
+/* =========================
+   CURSOR BLINK
+========================= */
+
+@keyframes cursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .playground,
+  .playground-scene {
+    min-height: 500px;
+  }
+
+  .mini-terminal {
+    top: 20px;
+    left: 20px;
+
+    width: 154px;
+
+    padding: 13px;
+  }
+
+  .node-projects {
+    left: 43% !important;
+    top: 28% !important;
+  }
+
+  .node-about {
+    left: 64% !important;
+    top: 47% !important;
+  }
+
+  .node-contact {
+    left: 82% !important;
+    top: 54% !important;
+  }
+
+  .node-cv {
+    left: 59% !important;
+    top: 17% !important;
+  }
+
+  .node-current {
+    left: 56% !important;
+    top: 76% !important;
+  }
+
+  .node-tooltip {
+    width: 122px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .playground,
+  .playground-scene {
+    min-height: 455px;
+  }
+
+  .mini-terminal {
+    top: 14px;
+    left: 14px;
+
+    width: 132px;
+
+    padding: 11px;
+
+    transform: none;
+  }
+
+  .mini-terminal-header {
+    font-size: 9px;
+  }
+
+  .mini-terminal-body {
+    font-size: 8.5px;
+  }
+
+  .terminal-muted {
+    font-size: 8px;
+  }
+
+  .navigation-node-float,
+  .navigation-node {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navigation-node-core {
+    width: 15px;
+    height: 15px;
+  }
+
+  .navigation-node.neutral
+    .navigation-node-core {
+    width: 11px;
+    height: 11px;
+  }
+
+  .node-projects {
+    left: 47% !important;
+    top: 30% !important;
+  }
+
+  .node-about {
+    left: 66% !important;
+    top: 48% !important;
+  }
+
+  .node-contact {
+    left: 80% !important;
+    top: 58% !important;
+  }
+
+  .node-cv {
+    left: 65% !important;
+    top: 17% !important;
+  }
+
+  .node-current {
+    left: 57% !important;
+    top: 77% !important;
+  }
+
+  .node-tooltip {
+    width: 108px;
+
+    padding: 9px 10px;
+
+    font-size: 9px;
+  }
+
+  .node-tooltip strong {
+    font-size: 10px;
+  }
+
+  .node-projects .node-tooltip {
+    top: calc(100% + 12px);
+    left: 50%;
+    right: auto;
+
+    transform: none;
+    translate: -50% 0;
+  }
+
+  .node-contact .node-tooltip {
+    top: 50%;
+    right: calc(100% + 10px);
+    left: auto;
+
+    transform: none;
+    translate: 0 -50%;
+  }
+
+  .playground-hint {
+    right: 12px;
+    bottom: 12px;
+
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,389 @@
+/* =========================
+   HERO SHELL
+========================= */
+
+.hero-shell {
+  min-height: 100vh;
+
+  padding: 28px 56px 48px;
+
+  background: var(--canvas);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  max-width: 1200px;
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+
+  color: var(--charcoal);
+}
+
+.brand-sparkle {
+  display: inline-block;
+
+  color: var(--rose);
+
+  font-size: 17px;
+  line-height: 1;
+
+  transform: translateY(-1px);
+
+  transition:
+    transform 220ms ease,
+    color 220ms ease;
+}
+
+.brand:hover .brand-sparkle {
+  color: var(--mulberry);
+
+  transform:
+    translateY(-1px)
+    rotate(8deg)
+    scale(1.08);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 14px;
+}
+
+.nav-links a {
+  position: relative;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--mulberry);
+}
+
+.nav-links a:not(.cv-link):hover {
+  transform: translateY(-1px);
+}
+
+.cv-link {
+  padding: 10px 16px;
+
+  border: 1px solid var(--mulberry);
+  border-radius: 8px;
+
+  color: var(--mulberry);
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+/*
+  More specific than `.nav-links a:hover`,
+  so the light text color actually wins.
+*/
+.nav-links a.cv-link:hover {
+  background: var(--mulberry);
+  border-color: var(--mulberry);
+
+  color: var(--surface);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   HERO GRID
+========================= */
+
+.hero-grid {
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding-top: 64px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.95fr;
+  gap: 64px;
+
+  align-items: center;
+}
+
+/* =========================
+   HERO COPY
+========================= */
+
+.hero-copy {
+  min-width: 0;
+}
+
+.terminal-line {
+  margin: 0 0 28px;
+
+  font-family: var(--font-mono), monospace;
+
+  color: var(--mulberry);
+
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+.hero-copy h1 {
+  margin: 0;
+
+  font-family: var(--font-display), sans-serif;
+
+  font-size: clamp(54px, 6vw, 88px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+
+  color: var(--charcoal);
+}
+
+.hero-copy h1 span {
+  color: var(--mulberry);
+}
+
+.hero-description {
+  max-width: 520px;
+
+  margin: 32px 0 0;
+
+  font-family: var(--font-body), sans-serif;
+
+  color: var(--muted);
+
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+/* =========================
+   HERO ACTIONS
+========================= */
+
+.hero-actions {
+  margin-top: 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 48px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-family: var(--font-mono), monospace;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.primary-btn {
+  border: 1px solid var(--mulberry);
+
+  background: var(--mulberry);
+  color: var(--surface);
+}
+
+.secondary-btn {
+  border: 1px solid var(--mulberry);
+
+  background: transparent;
+  color: var(--mulberry);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary-btn:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+}
+
+.secondary-btn:hover {
+  background:
+    rgba(141, 49, 93, 0.05);
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+  transform: scale(0.985);
+}
+
+/* =========================
+   CURRENT STATUS
+========================= */
+
+.status {
+  margin: 32px 0 0;
+
+  font-family: var(--font-mono), monospace;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+.status strong {
+  color: var(--violet);
+
+  font-weight: 500;
+}
+
+/* =========================
+   RESPONSIVE — TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .hero-shell {
+    padding:
+      20px
+      24px
+      40px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .hero-grid {
+    padding-top: 48px;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .hero-copy {
+    max-width: 720px;
+  }
+}
+
+/* =========================
+   RESPONSIVE — MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .hero-shell {
+    padding:
+      18px
+      20px
+      36px;
+  }
+
+  .nav {
+    min-height: 64px;
+  }
+
+  .brand {
+    font-size: 17px;
+
+    gap: 6px;
+  }
+
+  .brand-sparkle {
+    font-size: 15px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a:not(.cv-link) {
+    display: none;
+  }
+
+  .cv-link {
+    padding: 8px 12px;
+
+    font-size: 12px;
+  }
+
+  .hero-grid {
+    padding-top: 42px;
+  }
+
+  .terminal-line {
+    margin-bottom: 22px;
+
+    font-size: 15px;
+  }
+
+  .hero-copy h1 {
+    font-size:
+      clamp(44px, 13vw, 58px);
+  }
+
+  .hero-description {
+    margin-top: 26px;
+
+    font-size: 17px;
+  }
+
+  .hero-actions {
+    margin-top: 28px;
+
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .status {
+    margin-top: 28px;
+
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,533 @@
+/* =========================
+   CURRENT PROJECT
+========================= */
+
+.current-section {
+  position: relative;
+
+  padding: 120px 56px;
+
+  background: var(--surface);
+
+  overflow: hidden;
+}
+
+.current-inner {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 76px;
+
+  align-items: center;
+}
+
+/* =========================
+   COPY
+========================= */
+
+.current-kicker {
+  margin: 0 0 14px;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+
+  color: var(--violet);
+}
+
+.current-title-row {
+  position: relative;
+
+  width: fit-content;
+}
+
+.current-title-row h2 {
+  margin: 0;
+
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(66px, 8vw, 112px);
+  font-weight: 600;
+
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+
+  color: var(--mulberry);
+}
+
+.current-title-sparkle {
+  position: absolute;
+  right: -34px;
+  top: 3px;
+
+  color: var(--rose);
+
+  font-family: var(--font-mono), monospace;
+  font-size: 17px;
+}
+
+.current-lead {
+  max-width: 540px;
+
+  margin: 30px 0 0;
+
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(25px, 2.8vw, 36px);
+
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+
+  color: var(--charcoal);
+}
+
+.current-description {
+  max-width: 520px;
+
+  margin: 24px 0 0;
+
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+
+  line-height: 1.75;
+
+  color: var(--muted);
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.current-status-row {
+  margin-top: 28px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.current-status,
+.current-stack {
+  padding: 8px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+}
+
+.current-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--mulberry);
+
+  background:
+    rgba(255, 249, 242, 0.8);
+}
+
+.current-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--rose);
+
+  box-shadow:
+    0 0 0 4px rgba(200, 95, 124, 0.08);
+}
+
+.current-stack {
+  color: var(--violet);
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.current-progress {
+  max-width: 490px;
+
+  margin-top: 34px;
+}
+
+.current-progress-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+
+  color: var(--muted);
+}
+
+.current-progress-track {
+  position: relative;
+
+  width: 100%;
+  height: 4px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(216, 202, 195, 0.55);
+}
+
+.current-progress-track span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--mulberry),
+      var(--rose),
+      var(--violet)
+    );
+}
+
+.current-milestones {
+  margin-top: 9px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+
+  color: var(--muted);
+}
+
+/* =========================
+   LINK
+========================= */
+
+.current-link {
+  width: fit-content;
+
+  margin-top: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+
+  color: var(--mulberry);
+}
+
+.current-link span:last-child {
+  transition: transform 180ms ease;
+}
+
+.current-link:hover span:last-child {
+  transform: translateX(4px);
+}
+
+/* =========================
+   VISUAL
+========================= */
+
+.current-visual {
+  position: relative;
+}
+
+.current-window {
+  position: relative;
+
+  min-height: 560px;
+
+  padding: 22px;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      rgba(111, 80, 145, 0.07),
+      transparent 34%
+    ),
+    rgba(247, 241, 232, 0.65);
+
+  overflow: hidden;
+}
+
+.current-window-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 14px;
+
+  border-bottom:
+    1px solid rgba(216, 202, 195, 0.72);
+
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+
+  color: var(--muted);
+}
+
+.current-window-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.current-window-dots span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--soft-rose);
+}
+
+.current-window-dots span:nth-child(2) {
+  background: var(--rose);
+}
+
+.current-window-dots span:nth-child(3) {
+  background: var(--violet);
+}
+
+/* =========================
+   PHONE PLACEHOLDER
+========================= */
+
+.current-phone-shell {
+  position: absolute;
+  left: 50%;
+  top: 53%;
+
+  width: 245px;
+  height: 430px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(2deg);
+
+  padding: 10px;
+
+  border: 1px solid var(--mulberry);
+  border-radius: 30px;
+
+  background:
+    rgba(255, 249, 242, 0.95);
+
+  box-shadow:
+    0 18px 40px rgba(41, 35, 38, 0.07);
+}
+
+.current-phone-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 28px 16px 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 22px;
+
+  background: var(--canvas);
+
+  overflow: hidden;
+}
+
+.current-phone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 22px;
+
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+
+  color: var(--mulberry);
+}
+
+.current-list-card {
+  margin-bottom: 10px;
+
+  padding: 13px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: rgba(255, 249, 242, 0.82);
+}
+
+.current-list-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.current-list-card strong {
+  font-family: var(--font-body), sans-serif;
+  font-size: 11px;
+
+  color: var(--charcoal);
+}
+
+.current-list-card div span {
+  font-family: var(--font-mono), monospace;
+  font-size: 7px;
+
+  color: var(--muted);
+}
+
+.current-list-icon {
+  color: var(--rose);
+
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+}
+
+.current-list-icon.violet {
+  color: var(--violet);
+}
+
+.current-list-icon.soft {
+  color: var(--soft-rose);
+}
+
+.current-bottom-nav {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+
+  padding-top: 10px;
+
+  display: flex;
+  justify-content: space-around;
+
+  border-top: 1px solid var(--border);
+
+  font-family: var(--font-mono), monospace;
+  font-size: 7px;
+
+  color: var(--muted);
+}
+
+/* =========================
+   DECORATION
+========================= */
+
+.current-decor {
+  position: absolute;
+
+  font-family: var(--font-mono), monospace;
+
+  pointer-events: none;
+}
+
+.sparkle-a {
+  right: 18%;
+  top: 18%;
+
+  color: var(--rose);
+}
+
+.sparkle-b {
+  left: 14%;
+  bottom: 20%;
+
+  color: var(--violet);
+
+  font-size: 9px;
+}
+
+.sparkle-c {
+  right: 11%;
+  bottom: 18%;
+
+  color: var(--soft-rose);
+
+  font-size: 18px;
+}
+
+.current-wire {
+  position: absolute;
+  right: 7%;
+  bottom: 10%;
+
+  width: 90px;
+
+  fill: none;
+
+  stroke:
+    rgba(141, 49, 93, 0.34);
+
+  stroke-width: 1;
+
+  pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .current-section {
+    padding: 100px 24px;
+  }
+
+  .current-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .current-copy {
+    max-width: 680px;
+  }
+
+  .current-window {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .current-section {
+    padding-top: 82px;
+    padding-bottom: 82px;
+  }
+
+  .current-lead {
+    font-size: 27px;
+  }
+
+  .current-window {
+    min-height: 500px;
+  }
+
+  .current-phone-shell {
+    width: 220px;
+    height: 395px;
+  }
+
+  .current-progress {
+    max-width: 100%;
+  }
+}

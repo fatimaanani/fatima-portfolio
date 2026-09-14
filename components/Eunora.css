@@ -1,0 +1,578 @@
+/* =========================
+   EUNORA DEMO
+========================= */
+
+.eunora-demo {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  padding: 22px 24px 14px;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(217, 154, 158, 0.08),
+      transparent 45%
+    ),
+    rgba(255, 249, 242, 0.4);
+}
+
+/* =========================
+   DESKTOP WINDOW
+========================= */
+
+.eunora-window {
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: var(--surface);
+
+  box-shadow:
+    0 16px 42px rgba(41, 35, 38, 0.06);
+}
+
+.eunora-window-top {
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border-bottom: 1px solid var(--border);
+
+  background:
+    rgba(247, 241, 232, 0.92);
+
+  font-family: var(--font-mono), monospace;
+}
+
+.eunora-window-dots {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.eunora-window-dots span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--soft-rose);
+}
+
+.eunora-window-dots span:nth-child(2) {
+  background: var(--rose);
+}
+
+.eunora-window-dots span:nth-child(3) {
+  background: var(--violet);
+}
+
+.eunora-window-title {
+  justify-self: center;
+
+  font-size: 11px;
+  letter-spacing: 0.03em;
+
+  color: var(--muted);
+}
+
+.eunora-window-status {
+  justify-self: end;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 9px;
+
+  color: var(--mulberry);
+}
+
+.eunora-window-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--rose);
+
+  box-shadow:
+    0 0 0 3px rgba(200, 95, 124, 0.08);
+}
+
+/* =========================
+   SCREEN STAGE
+========================= */
+
+.eunora-screen-stage {
+  position: relative;
+
+  height: 340px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 26px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(111, 80, 145, 0.045),
+      transparent 52%
+    ),
+    rgba(247, 241, 232, 0.58);
+
+  isolation: isolate;
+}
+
+/* =========================
+   SCREENSHOT
+========================= */
+
+.eunora-screen {
+  position: relative;
+
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 88%;
+  max-height: 290px;
+
+  object-fit: contain;
+
+  border: 1px solid rgba(216, 202, 195, 0.82);
+  border-radius: 8px;
+
+  background: #fff;
+
+  box-shadow:
+    0 12px 30px rgba(41, 35, 38, 0.07);
+
+  user-select: none;
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* =========================
+   FAKE CURSOR
+========================= */
+
+.eunora-demo-cursor {
+  position: absolute;
+
+  width: 23px;
+  height: 23px;
+
+  translate: -3px -3px;
+
+  pointer-events: none;
+
+  z-index: 10;
+}
+
+.eunora-demo-cursor-icon {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  overflow: visible;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(41, 35, 38, 0.14));
+}
+
+.eunora-demo-cursor-icon path {
+  fill: #c59bd7;
+
+  stroke: #281f22;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* =========================
+   CLICK PULSE
+========================= */
+
+.eunora-click-pulse {
+  position: absolute;
+
+  left: 10px;
+  top: 9px;
+
+  width: 15px;
+  height: 15px;
+
+  border: 1px solid var(--rose);
+  border-radius: 50%;
+
+  background:
+    rgba(200, 95, 124, 0.1);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.eunora-demo-progress {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 0;
+
+  padding: 0 2px;
+
+  margin-bottom: 4px;
+}
+
+.eunora-progress-step {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0 3px 4px;
+
+  border: 0;
+  border-radius: 5px;
+
+  background: transparent;
+
+  font-family: var(--font-mono), monospace;
+
+  color: var(--muted);
+
+  cursor: pointer;
+  appearance: none;
+
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.eunora-progress-step::before {
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    rgba(216, 202, 195, 0.8);
+
+  z-index: 0;
+}
+
+.eunora-progress-step:first-child::before {
+  left: 50%;
+  width: 50%;
+}
+
+.eunora-progress-step:last-child::before {
+  width: 50%;
+}
+
+.eunora-progress-dot {
+  position: relative;
+
+  width: 9px;
+  height: 9px;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface);
+
+  z-index: 2;
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.eunora-progress-label {
+  font-size: 8px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 220ms ease;
+}
+
+/* completed */
+
+.eunora-progress-step.complete .eunora-progress-dot {
+  border-color: var(--soft-rose);
+
+  background: var(--soft-rose);
+}
+
+.eunora-progress-step.complete .eunora-progress-label {
+  color: var(--muted);
+}
+
+/* active */
+
+.eunora-progress-step.active .eunora-progress-dot {
+  border-color: var(--mulberry);
+
+  background: var(--rose);
+
+  box-shadow:
+    0 0 0 4px rgba(200, 95, 124, 0.09);
+
+  transform: scale(1.08);
+}
+
+.eunora-progress-step.active .eunora-progress-label {
+  color: var(--mulberry);
+}
+
+/* interaction */
+
+@media (hover: hover) and (pointer: fine) {
+  .eunora-progress-step:hover .eunora-progress-dot {
+    border-color: var(--rose);
+
+    transform: scale(1.18);
+  }
+
+  .eunora-progress-step:hover .eunora-progress-label {
+    color: var(--mulberry);
+  }
+}
+
+.eunora-progress-step:focus-visible {
+  outline: 1px solid var(--violet);
+  outline-offset: 4px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .eunora-demo {
+    padding: 20px 18px 12px;
+  }
+
+  .eunora-window-top {
+    min-height: 38px;
+
+    padding: 0 11px;
+  }
+
+  .eunora-window-title,
+  .eunora-window-status {
+    font-size: 8px;
+  }
+
+  .eunora-screen-stage {
+    height: 320px;
+
+    padding: 22px;
+  }
+
+  .eunora-screen {
+    max-width: 92%;
+    max-height: 270px;
+  }
+
+  .eunora-demo-cursor {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .eunora-demo {
+    gap: 12px;
+
+    padding: 16px 12px 10px;
+  }
+
+  .eunora-window {
+    border-radius: 11px;
+  }
+
+  .eunora-window-top {
+    min-height: 35px;
+
+    grid-template-columns: auto 1fr auto;
+
+    gap: 8px;
+
+    padding: 0 9px;
+  }
+
+  .eunora-window-dots {
+    gap: 4px;
+  }
+
+  .eunora-window-dots span {
+    width: 5px;
+    height: 5px;
+  }
+
+  .eunora-window-title {
+    justify-self: start;
+
+    max-width: 135px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 7px;
+  }
+
+  .eunora-window-status {
+    gap: 4px;
+
+    font-size: 7px;
+  }
+
+  .eunora-window-status-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .eunora-screen-stage {
+    height: 270px;
+
+    padding: 18px 10px;
+  }
+
+  .eunora-screen {
+    max-width: 94%;
+    max-height: 230px;
+  }
+
+  .eunora-demo-cursor {
+    width: 18px;
+    height: 18px;
+  }
+
+  .eunora-click-pulse {
+    left: 8px;
+    top: 7px;
+
+    width: 12px;
+    height: 12px;
+  }
+
+  .eunora-demo-progress {
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 14px;
+
+    padding: 0;
+  }
+
+  .eunora-progress-step:nth-child(3)::before,
+  .eunora-progress-step:nth-child(6)::before {
+    width: 50%;
+  }
+
+  .eunora-progress-step:nth-child(4)::before {
+    left: 50%;
+    width: 50%;
+  }
+
+  .eunora-progress-label {
+    font-size: 7px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 420px) {
+  .eunora-window-status {
+    display: none;
+  }
+
+  .eunora-window-top {
+    grid-template-columns: auto 1fr;
+  }
+
+  .eunora-window-title {
+    justify-self: end;
+  }
+
+  .eunora-screen-stage {
+    height: 245px;
+  }
+
+  .eunora-screen {
+    max-height: 210px;
+  }
+
+  .eunora-progress-label {
+    font-size: 6.5px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .eunora-progress-dot,
+  .eunora-progress-label,
+  .eunora-progress-step {
+    transition: none;
+  }
+
+  .eunora-demo-cursor,
+  .eunora-click-pulse {
+    display: none;
+  }
+}

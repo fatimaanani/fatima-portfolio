@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
+/* =========================
+   DESIGN TOKENS
+========================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #f7f1e8;
+  --surface: #fff9f2;
+
+  --charcoal: #292326;
+  --muted: #74686d;
+
+  --mulberry: #8d315d;
+  --rose: #c85f7c;
+  --soft-rose: #d99a9e;
+  --violet: #6f5091;
+
+  --border: #d8cac3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================
+   RESET / BASE
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+
+  background: var(--canvas);
+  color: var(--charcoal);
+
+  font-family: var(--font-body), sans-serif;
+
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection {
+  background: rgba(200, 95, 124, 0.22);
+  color: var(--charcoal);
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--violet);
+  outline-offset: 4px;
+}
+
+/* =========================
+   SECTION NAVIGATION
+========================= */
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select,
+  .playground-scene,
+  .navigation-node,
+  .mini-terminal-body button {
+    cursor:
+      url("/cursor.svg") 3 3,
+      auto;
+  }
 }
