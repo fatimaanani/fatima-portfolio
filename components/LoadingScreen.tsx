@@ -13,7 +13,13 @@ type GlitchBlock = {
   delay: number;
 };
 
-export default function LoadingScreen() {
+type LoadingScreenProps = {
+  onComplete?: () => void;
+};
+
+export default function LoadingScreen({
+  onComplete,
+}: LoadingScreenProps) {
   const screenRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
@@ -47,6 +53,7 @@ export default function LoadingScreen() {
       const tl = gsap.timeline({
         onComplete: () => {
           setVisible(false);
+          onComplete?.();
         },
       });
 
@@ -126,7 +133,7 @@ export default function LoadingScreen() {
     }, screenRef);
 
     return () => ctx.revert();
-  }, [blocks]);
+  }, [blocks, onComplete]);
 
   if (!visible) return null;
 

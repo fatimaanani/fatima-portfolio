@@ -3,10 +3,8 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { gsap } from "gsap";
-
 import InteractivePlayground from "./InteractivePlayground";
 import HeroSnapshot from "./HeroSnapshot";
-
 import "./Hero.css";
 
 const viewportSettings = {
@@ -14,11 +12,17 @@ const viewportSettings = {
   amount: 0.35,
 };
 
-export default function Hero() {
+type HeroProps = {
+  startTyping: boolean;
+};
+
+export default function Hero({ startTyping }: HeroProps) {
   const terminalTextRef = useRef<HTMLSpanElement>(null);
   const terminalCursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    if (!startTyping) return;
+
     const textElement = terminalTextRef.current;
     const cursorElement = terminalCursorRef.current;
 
@@ -48,11 +52,10 @@ export default function Hero() {
         ease: `steps(${fullText.length})`,
         delay: 0.2,
         onUpdate: () => {
-          textElement.textContent =
-            fullText.slice(
-              0,
-              Math.round(typingState.length),
-            );
+          textElement.textContent = fullText.slice(
+            0,
+            Math.round(typingState.length),
+          );
         },
       });
 
@@ -66,7 +69,7 @@ export default function Hero() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [startTyping]);
 
   return (
     <section id="top" className="hero-shell">
@@ -98,6 +101,8 @@ export default function Hero() {
           <a
             href="/Fatima-Anani-CV.pdf"
             className="cv-link"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             &gt; CV ↗
           </a>
@@ -214,7 +219,7 @@ export default function Hero() {
             initial={{
               opacity: 0,
               y: 8,
-            }} 
+            }}
             whileInView={{
               opacity: 1,
               y: 0,
